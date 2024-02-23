@@ -1,0 +1,16 @@
+{
+    "gear": {
+        "Sword of the Ancients": 7,
+        "Rocket Launcher": 3,
+        "Gravity Coil": 25,
+        "Superhero Cape": 25,
+        "Ninja Shuriken": 40
+    },
+    "accessories": {
+        "Classic Fedora": 8,
+        "Dominus Empyreus": 2,
+        "Red Baseball Cap": 40,
+        "Antlers": 50,
+        "Golden Top Hat": 30
+    }
+}
