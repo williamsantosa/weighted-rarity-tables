@@ -12,7 +12,7 @@ def load_yaml(file_location):
         data = yaml.safe_load(file)
     return data
 
-def load_table(file_location):
+def load_tables(file_location):
     # Check if file_location is supplied
     if file_location is None or file_location == '':
         return None
