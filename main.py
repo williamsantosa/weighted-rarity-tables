@@ -12,8 +12,35 @@ def main():
         print(f"Error: Invalid file location '{args.file_location}'")
         return
 
-    weighted_rarity_table = weights.WeightedRarityTable(args.file_location)
-    print(weighted_rarity_table.get_item_pairs('gear'))
+    tables = weights.WeightedRarityTable(args.file_location)
+    while True:
+        command = input("Enter a command (help): ")
+        command = command.split(" ")
+        if command[0] == "exit":
+            break
+        elif command[0] == "help":
+            print("Commands: \n- exit\n- help\n- simulate <table_name> <n>\n- set_luck_rate <n>\n- get_weighted_random <table>\n- table_total_weight <table>\n- get_item_pairs <table>\n- display")
+        elif command[0] == "simulate":
+            table_name = command[1]
+            iterations = int(command[2])
+            ret = tables.simulate(table_name, iterations)
+            print(sorted(ret.items(), key=lambda x: x[1], reverse=True))
+        elif command[0] == "set_luck_rate":
+            rate = float(command[1])
+            tables.set_luck_rate(rate)
+        elif command[0] == "get_weighted_random":
+            table = command[1]
+            print(tables.get_weighted_random(table))
+        elif command[0] == "table_total_weight":
+            table = command[1]
+            print(tables.table_total_weight(table))
+        elif command[0] == "get_item_pairs":
+            table = command[1]
+            print(tables.get_item_pairs(table))
+        elif command[0] == "display":
+            print(tables)
+        else:
+            print(f"Error: Invalid command '{command[0]}'")
 
 if __name__ == "__main__":
     main()
